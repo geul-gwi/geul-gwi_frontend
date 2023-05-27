@@ -1,0 +1,23 @@
+/* 업로드한 이미지 */
+.image-div {
+    margin: auto;
+    width : 500px;
+    height : 500px;
+    max-height: 450px;
+    border: 2px;
+    border-color: black;
+    margin-bottom: 30px;
+}
+
+.image-div img {
+    object-fit: cover;
+    object-position: center;
+    width : 100%;
+    height : 100%;
+    max-height : 450px;
+    margin : 0 auto;
+}
+
+.img-upload-button , .img-delete-button{
+    cursor: pointer;
+}
