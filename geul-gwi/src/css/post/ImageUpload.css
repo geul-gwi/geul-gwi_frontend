@@ -1,12 +1,9 @@
-/* 업로드한 이미지 */
+/* 업로드 이미지 */
 .image-div {
     margin: auto;
     width : 500px;
-    height : 500px;
+    height : 450px;
     max-height: 450px;
-    border: 2px;
-    border-color: black;
-    margin-bottom: 30px;
 }
 
 .image-div img {
@@ -18,6 +15,7 @@
     margin : 0 auto;
 }
 
-.img-upload-button , .img-delete-button{
+.img-delete-button{
     cursor: pointer;
+    margin-bottom: 30px;
 }
