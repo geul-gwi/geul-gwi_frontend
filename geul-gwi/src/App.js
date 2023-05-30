@@ -6,7 +6,7 @@ import RootRoute from './RootRoute'
 function App() {
   return (
     <div className="App" style={{fontFamily : 'MaruBuriExtraLight'}}>
-      <RootRoute />
+       <RootRoute /> 
     </div>
   );
 }
