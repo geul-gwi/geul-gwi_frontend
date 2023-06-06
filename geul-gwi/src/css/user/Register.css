@@ -1,0 +1,36 @@
+input{
+    width : 100%;
+    height : 30px;
+    color : #ffc2b3;
+    margin-bottom : 20px;
+}
+label { 
+    padding-bottom : 10px;
+}
+.title{
+    display : inline-block;
+    position : relative;
+    margin : 0 auto;
+    margin-bottom : 50px;
+}
+.sub_title{
+    display : inline-block;
+    position : absolute;
+    top : 4px;
+    text-align : center;
+    color : grey;
+    width : 67%;
+}
+
+.box1Show{
+    left : 0%;
+}
+.box1Hide{
+    left : -100%;
+}
+.box2Show{
+    left : 0%;
+}
+.box2Hide{
+    left : 100%;
+}

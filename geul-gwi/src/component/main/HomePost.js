@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+// component Import!
+import LikeBtn from 'component/common/button/LikeBtn';
 
 // css Import!
 import 'css/main/HomePost.css'
@@ -17,14 +20,11 @@ const HomePost = ({profile, name, intro, contentImage,content, tags}) => {
 
     const [LikeBtnClick, setLikeBtnClick] = useState(false)
 
-    function LikeClick(){
-        if (LikeBtnClick == false){
-            setLikeBtnClick(true)
-        }
-        else{
-            setLikeBtnClick(false)
-            
-        }
+    const toggleLike = async (e) => {
+        axios.post('127.0.0.1',!LikeBtnClick)
+        .then(console.log('axios success'))
+        .catch(console.error());
+        setLikeBtnClick(!LikeBtnClick);
     }
 
     return (
@@ -56,16 +56,10 @@ const HomePost = ({profile, name, intro, contentImage,content, tags}) => {
                 <TagContainer>
 
                 </TagContainer>
-                
-                <input id="likeContainer "type='checkbox'/>
-                <LikeBtnContainer onClick={() => LikeClick()}>
-                    {/* {LikeBtnClick ? <AiFillLike size={24} color={'#fa4a3d'} /> : <AiOutlineLike size={24} /> } */}
-                    <label class='likeBtnlabel' for="likeContainer" onClick={() => LikeClick()}>
-                        {LikeBtnClick ? <img class='likeBtn' src={IconPath + 'likeSolid.png'}/> : <img class='likeBtn' src={IconPath + 'likeRegular.png'} />}
-                    </label>
-
-                    
+                <LikeBtnContainer onClick={ () => toggleLike }>
+                    <LikeBtn like={true} onClick={ () => toggleLike() }/>
                 </LikeBtnContainer>
+                
             </PostBtnTagContainer>
         </PostContainer>
     );
@@ -79,7 +73,7 @@ const PostContainer = styled.div`
     min-height: 300px;
     box-shadow: 3px 3px 8px 0px #b3b3b3;
     background-color : white;
-    margin : 70px 30px 10px 30px; /* top right down left*/
+    margin : 20px 30px 90px 30px; /* top right down left*/
     padding-left : 20px;
     padding-right : 20px;
     border-radius : 16px;

@@ -1,6 +1,11 @@
-.user:hover{
-    
+.writeHover{
+    background-color: #444444;
+    color : white;
+    font-size : 30px;
+    border-radius : 12px;
 }
-.message{
-
+.writeHoverOut{
+    font-size : 30px;
+    background-color : white;
+    color : black;
 }

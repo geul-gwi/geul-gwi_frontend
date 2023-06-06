@@ -11,10 +11,10 @@ import path from 'img/back_gradient.jpg';
 
 const Home = () => {
     const [isLogged, setIsLogged] = useState(true)
-
+    // Image Path
     const imagePath = process.env.PUBLIC_URL+'/img/';
     return (
-        <div style={{height : "1500px"}}>
+        <div style={{height : "auto"}}>
             { isLogged?
             '' : <h1><Navigate to="/user" replace={true}/></h1>
                 
@@ -67,7 +67,7 @@ const Home = () => {
 const HeadBackImg = styled.div`
     position : absolute;
     width : 100%;
-    height : 650px;
+    height : 100vh;
     top: 0;
     left : 0;
     z-index: -1;
@@ -83,15 +83,16 @@ const HeadContainer = styled.div`
     position : relative;
     top : 0%;
     width : 100%;
-    height : 480px;
+    height : auto;
+    min-height : 580px;
     
     /* background-image : url("i-mg/back_gradient.jpg"); */
 `
 const RecomTitle = styled.span`
     display : inline-block;
     color : white;
-    font-size : 18px;
-    font-weight : bold;
+    font-size : 24px;
+    font-weight : normal;
     padding-bottom : 10px;
     
 `
@@ -107,7 +108,7 @@ const RecomContainer = styled.div`
 `
 const RecomContentsContainer = styled.div`
     width : calc(100% - 3px);
-    height : 250px;
+    height : 300px;
     background-color : rgba(255,255,255,0);
     border : 2px solid white;
     border-radius : 12px;
@@ -118,7 +119,7 @@ const RecomContents_HeadContainer = styled.div`
     top : 0;
     left : 0;
     width : 100%;
-    height : 35px;
+    height : 50px;
     background-color : white;
 `
 

@@ -1,12 +1,20 @@
 import React from 'react';
-import { BrowserRouter,Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Import Component
+import Home from 'component/main/Home';
+import ChallengeRouter from './challenge/ChallengeRouter';
+
+// Import Context
+import UserStore from 'contextStore/UserStore';
 
 const MainRoute = () => {
-    <BrowserRouter>
+    return (
         <Routes>
-            <Route path='/'></Route>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/challenge/*' element={<ChallengeRouter />}></Route>
         </Routes>
-    </BrowserRouter>
+    );
 };
 
 export default MainRoute;

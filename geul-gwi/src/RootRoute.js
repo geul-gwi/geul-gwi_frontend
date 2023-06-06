@@ -11,7 +11,7 @@ const RootRoute = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Home />}></Route>
-                <Route path='/user' element={<User />}></Route>
+                <Route path='/user/*' element={<User />}></Route>
                 <Route path='/main/*' element={<MainRoute />}></Route>
                 {/* <Route path='/post' element={<PostForm />} /> */}
             </Routes>

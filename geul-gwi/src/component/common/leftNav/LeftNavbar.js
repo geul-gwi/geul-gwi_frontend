@@ -1,4 +1,5 @@
 import {React , useState} from 'react';
+import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 // css import
 import path from 'css/common/leftNav/leftNav.css'
@@ -10,12 +11,21 @@ import { faUser as RegularUser, faEnvelope as RegularEnvelope , faBell as Regula
 
 
 // State
+
+
+// function
+const newWrite = () => {
+    console.log("newWrite");
+    // 로그인이 되어있을 때만 이동할 수 있도록 작성
+    <Navigate to="/main/challenge/write_post" replace={true}/>
+}
+
 const LeftNavbar = () => {
     const [userHover, setUserHover] = useState(true);
     const [envelopeHover, setEnvelopeHover] = useState(true);
     const [bellHover, setBellHover] = useState(true);
-    
-    
+    const [writeHover, setWriteHover] = useState(true);
+    // 아이콘 Hover Effect 처리
     const setHover = (stateName, isTrue) => {
         switch (stateName){
             case "user":
@@ -27,14 +37,19 @@ const LeftNavbar = () => {
             case "bell":
                 setBellHover(isTrue);
                 break;
+            case "write":
+                setWriteHover(isTrue);
+                break;
             default:
                 break;
         }
-            
     };
 
-    return (
+    // 글 작성 이벤트
+    
 
+
+    return (
         <NavBar>
             <ItemContainer>
                 <Item 
@@ -50,7 +65,14 @@ const LeftNavbar = () => {
                 <Item
                 onMouseOver={() => setHover("bell",false)}
                 onMouseOut={() => setHover("bell",true)}>
-                    <FontAwesomeIcon size="xl" color={'#444444'} title='메시지' icon={bellHover ? RegularBell : SolidBell}/>
+                    <FontAwesomeIcon size="xl" color={'#444444'} title='알림' icon={bellHover ? RegularBell : SolidBell}/>
+                </Item>
+                <Item
+                onMouseOver={() => setHover("write",false)}
+                onMouseOut={() => setHover("write",true)}
+                onClick={newWrite}
+                className={writeHover ? "writeHoverOut" : "writeHover"}>
+                    <span>+</span>
                 </Item>
                 
 
@@ -87,13 +109,14 @@ const ItemContainer = styled.div`
 `
 // Item을 담음 (ItemContainer보다 하위)
 const Item = styled.div`
-    display : inline-flex;
+    display : flex;
     width : 45px;
     height : 45px;
     margin : 10px;
     justify-content: center;
     align-items: center;
     cursor : pointer;
+    padding : 0px;
 
 `
 
