@@ -22,8 +22,13 @@
     border-right: 1px solid rgba(128, 128, 128, 0.671);
 }
 .LeftContainer .TitleContainer{
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width : 100%;
     margin : 0 auto;
+
 }
 .LeftContainer .TitleContainer > h1{
     padding : 0;
@@ -49,16 +54,18 @@
 /* 오른쪽 컨테이너s */
 /* 오른쪽 Input과 Button */
 .FormContentManage{
+    display : flex;
     padding-top: 20px;
     width : 70%;
     margin : 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 /* 오른쪽 콘텐츠에 (아이디 비밀번호찾기 , 계정저장, 회원가입 ) */
 .sub_Container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     width: 70%;
-    margin-top: 10px;
     padding : 0px 5px 0px 5px;
 }
 /* --------------------------------- */

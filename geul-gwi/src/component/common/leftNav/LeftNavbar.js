@@ -1,5 +1,5 @@
-import {React , useState} from 'react';
-import { Navigate } from 'react-router-dom';
+import {React , useState, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 // css import
 import path from 'css/common/leftNav/leftNav.css'
@@ -9,18 +9,30 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser as SolidUser, faEnvelope as SolidEnvelope , faBell as SolidBell} from '@fortawesome/free-solid-svg-icons'
 import { faUser as RegularUser, faEnvelope as RegularEnvelope , faBell as RegularBell} from '@fortawesome/free-regular-svg-icons'
 
+//context Import
+import { userStoreContext } from 'contextStore/UserStore';
 
-// State
 
-
-// function
-const newWrite = () => {
-    console.log("newWrite");
-    // 로그인이 되어있을 때만 이동할 수 있도록 작성
-    <Navigate to="/main/challenge/write_post" replace={true}/>
-}
 
 const LeftNavbar = () => {
+    // context
+    const UserState = useContext(userStoreContext);
+
+    // function
+    const navigate = useNavigate();
+    const newWrite = () => {
+        console.log("newWrite");
+        // 로그인이 되어있을 때만 이동할 수 있도록 작성
+        if (UserState.loggedIn){
+            alert("글 작성하러 이동합니다");
+            navigate("/main/challenge/write_post")
+        }
+        else{
+            alert("로그인이 되어있지 않아 이용하실 수 없습니다.");
+        }
+        
+    }
+
     const [userHover, setUserHover] = useState(true);
     const [envelopeHover, setEnvelopeHover] = useState(true);
     const [bellHover, setBellHover] = useState(true);

@@ -1,12 +1,10 @@
-import { faHourglassEmpty } from '@fortawesome/free-solid-svg-icons';
-import React, { useContext } from 'react'
+import React from 'react'
 import { useState } from 'react';
 
 export const userStoreContext = React.createContext({
     loggedUser : {
             userid : '',
-            email : '',
-            name : ''
+            nickname : ''
     },
     loggedIn : false,
     setLoggedUser : () => {},
@@ -23,7 +21,7 @@ const UserStore = ({children}) => {
         ))
     }
 
-    const setLoggedIn = () => {
+    const setLoggedIn = (isTrue) => {
         setState(prevState => (
             {
                 ...prevState,

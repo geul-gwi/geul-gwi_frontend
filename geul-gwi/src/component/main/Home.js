@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 // component Import!
@@ -7,16 +7,20 @@ import LeftNavbar from '../common/leftNav/LeftNavbar';
 import HomePost from 'component/main/HomePost';
 // src Import!
 import path from 'img/back_gradient.jpg';
-
+// Context Import
+import { userStoreContext } from 'contextStore/UserStore';
 
 const Home = () => {
-    const [isLogged, setIsLogged] = useState(true)
+    const userContext = useContext(userStoreContext);
+    const isLogged = true;
+    // userContext.isLogged;
+    
     // Image Path
     const imagePath = process.env.PUBLIC_URL+'/img/';
     return (
         <div style={{height : "auto"}}>
             { isLogged?
-            '' : <h1><Navigate to="/user" replace={true}/></h1>
+            '' : <h1><Navigate to="/user/login" replace={true}/></h1>
                 
             }
             <LeftNavbar />
