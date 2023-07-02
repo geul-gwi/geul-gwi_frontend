@@ -1,26 +1,38 @@
 import React from 'react';
 import styled  from "styled-components";
 
-// Import React icons
+// Import Component
+import HeaderMenu from "component/common/header/HeaderMenu";
+
 
 // Header를 나중에 수정하기 위해서 Style된 Tag로 만들어둠
 const Container = styled.div`
+    position : relative;
     width : 100%;
     height : 70px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: white;
 `
 const TextContainer = styled.div`
-    width : 95%;
+    position : absolute;
+    left : 30px;
+    width : auto;
+    min-width : 100px;
     height: 100%;
-    margin : 0 auto;
-    
-    color : white;
+    color : #FFB6B2;
     font-size: 30px;
-    text-align: center;
     line-height: 70px;
+
 `
+
 const IconContainer = styled.div`
-    
+    position : absolute;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    right : 0px;
+    width : auto;
+    min-width : 100px;
+    height : 100%;
 `
 
 const Header = () => {
@@ -29,6 +41,9 @@ const Header = () => {
             <TextContainer style={{fontFamily : "Maru Buri", fontStyle : "semi-bold"}}>
                 글 귀
             </TextContainer>
+            <IconContainer>
+                <HeaderMenu/>
+            </IconContainer>
         </Container>
     );
 };
