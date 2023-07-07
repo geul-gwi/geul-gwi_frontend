@@ -7,10 +7,12 @@ import HomePost from 'component/main/HomePost';
 import Navigation from 'component/main/Home/Navigation';
 import Weather from "component/main/Home/Weather"
 import ShowTrend from './Home/ShowTrend';
+import ContentManager from './Home/ContentManager';
 // src Import!
 import path from 'img/back_gradient.jpg';
 // Context Import
 import { userStoreContext } from 'contextStore/UserStore';
+
 
 
 
@@ -42,6 +44,7 @@ const Home = () => {
                 </LeftContainer>
                 {/* 가운데 Container */}
                 <MidContainer>
+                    <ContentManager />
 
                     <MainContentsContainer>
                         {/* 게시글 2개 넣어보기 ( 정적이라 동적으로 바꾸어 주어야함 )
@@ -139,7 +142,6 @@ const MidContainer = styled(ContainerFrame)`
     left : calc(50% - 350px);
     width : 630px;
     height : 600px;
-    border : 1px solid;
 `
 const RightContainer = styled(ContainerFrame)`
     display : flex;
@@ -163,7 +165,6 @@ const MainContentsContainer = styled.div`
     flex-wrap: no-wrap;
     align-items : center;
 
-    border : 1px solid black;
 `
 
 
