@@ -3,13 +3,16 @@ import { Navigate } from 'react-router-dom';
 import styled from 'styled-components';
 // component Import!
 import Header from './../common/header/Header';
-import LeftNavbar from '../common/leftNav/LeftNavbar';
 import HomePost from 'component/main/HomePost';
-import Navigation from './Home/Navigation';
+import Navigation from 'component/main/Home/Navigation';
+import Weather from "component/main/Home/Weather"
+import ShowTrend from './Home/ShowTrend';
 // src Import!
 import path from 'img/back_gradient.jpg';
 // Context Import
 import { userStoreContext } from 'contextStore/UserStore';
+
+
 
 const Home = () => {
     const userContext = useContext(userStoreContext);
@@ -34,7 +37,8 @@ const Home = () => {
 
                 {/* 왼쪽 Container */}
                 <LeftContainer>
-                    <Navigation />
+                    <Navigation/>
+                    <Weather />
                 </LeftContainer>
                 {/* 가운데 Container */}
                 <MidContainer>
@@ -63,7 +67,7 @@ const Home = () => {
                 </MidContainer>
                 {/* 오른쪽 Container */}
                 <RightContainer>
-
+                    <ShowTrend />
                 </RightContainer>
 
 
@@ -77,12 +81,11 @@ const Home = () => {
 };
 const Frame = styled.div`
     position : relative;
-    width : 1300px;
+    width : 1200px;
     height: auto;
     min-height : 100vh;
     margin : 0 auto;
 
-    border : 1px solid green;
 `
 
 const BackImg = styled.div`
@@ -119,30 +122,33 @@ const ContainerFrame = styled.div`
     position : absolute;
     width : 180px;
     height: 700px;
-    border: 1px solid black;
     margin-top : 20px;
 `
 
 const LeftContainer = styled(ContainerFrame)`
     display : flex;
-    left : 50px;
+    left : 40px;
     top : 100px;
-
+    height : 470px;
     flex-direction : column;
-    
+    justify-content: space-between;
 `
 const MidContainer = styled(ContainerFrame)`
     position : absolute;
     top : 100px;
-    left : calc(50% - 370px);
-    width : 650px;
+    left : calc(50% - 350px);
+    width : 630px;
     height : 600px;
     border : 1px solid;
 `
 const RightContainer = styled(ContainerFrame)`
-    width : 270px;
-    right : 50px;
+    display : flex;
+    width : 250px;
+    right : 40px;
     top : 100px;
+
+    flex-direction : column;
+    justify-content: space-between;
 `
 
 // 메인 게시글 콘테이너
@@ -160,10 +166,6 @@ const MainContentsContainer = styled.div`
     border : 1px solid black;
 `
 
-
-const WeatherContainer = styled.div`
-
-`
 
 
 export default Home;
