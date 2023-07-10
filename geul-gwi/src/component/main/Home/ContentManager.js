@@ -23,6 +23,7 @@ const ManagerFrame = styled.div`
 
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom :30px;
 `
 
 const MenuFrame = styled.div`
@@ -54,6 +55,23 @@ const MovingUnderLine = styled.div`
     position : absolute;
     background-color: rgba(246,103,103,58);
     border-radius : 16px;
+`
+const TitleContainer = styled.div`
+    display : flex;
+    width : 100%;
+    height : 20%;
+    
+    border : 1px solid blue;
+
+    justify-content : center;
+    align-items: center;
+`
+const AiContentContainer = styled.div`
+    cursor : pointer;
+    width : 100%;
+    height : 79%;
+
+    border : 1px solid green;
 `
 
 export default ContentManager;

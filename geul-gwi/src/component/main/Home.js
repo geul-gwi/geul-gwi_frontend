@@ -8,10 +8,12 @@ import Navigation from 'component/main/Home/Navigation';
 import Weather from "component/main/Home/Weather"
 import ShowTrend from './Home/ShowTrend';
 import ContentManager from './Home/ContentManager';
+import AiContent from './Home/AiContent';
 // src Import!
 import path from 'img/back_gradient.jpg';
 // Context Import
 import { userStoreContext } from 'contextStore/UserStore';
+
 
 
 
@@ -45,7 +47,7 @@ const Home = () => {
                 {/* 가운데 Container */}
                 <MidContainer>
                     <ContentManager />
-
+                    <AiContent />
                     <MainContentsContainer>
                         {/* 게시글 2개 넣어보기 ( 정적이라 동적으로 바꾸어 주어야함 )
                         => 예를 들어) 기본적으로 최소 5개 콘텐츠를 보여주고, 스크롤 할 때마다 추가하는 식으로
@@ -92,7 +94,7 @@ const Frame = styled.div`
 `
 
 const BackImg = styled.div`
-    position : absolute;
+    position : fixed;
     width : 100%;
     height : 100vh;
     top: 0;
@@ -109,17 +111,19 @@ const BackImg = styled.div`
 // Container는 LeftContainer , MidContainer , RightContainer 세 부분으로 나뉜다
 // StyledComponent
 const HeadWhite = styled.div`
-    position : absolute;
+    position : fixed;
     width : 100%;
     height : 70px;
     background-color : white;
+    z-index : 1
 `
 
 const HeadContainer = styled.div`
-    position : relative;
+    position : fixed;
     top : 0%;
     width : 100%;
     height : 70px;
+    z-index : 1
 `
 const ContainerFrame = styled.div`
     position : absolute;
@@ -129,6 +133,7 @@ const ContainerFrame = styled.div`
 `
 
 const LeftContainer = styled(ContainerFrame)`
+    position : fixed;
     display : flex;
     left : 40px;
     top : 100px;
@@ -144,6 +149,7 @@ const MidContainer = styled(ContainerFrame)`
     height : 600px;
 `
 const RightContainer = styled(ContainerFrame)`
+    position : fixed;
     display : flex;
     width : 250px;
     right : 40px;
