@@ -9,10 +9,12 @@ import Weather from "component/main/Home/Weather"
 import ShowTrend from './Home/ShowTrend';
 import ContentManager from './Home/ContentManager';
 import AiContent from './Home/AiContent';
+import Post from "component/main/Home/Post"
 // src Import!
 import path from 'img/back_gradient.jpg';
 // Context Import
 import { userStoreContext } from 'contextStore/UserStore';
+
 
 
 
@@ -53,21 +55,13 @@ const Home = () => {
                         => 예를 들어) 기본적으로 최소 5개 콘텐츠를 보여주고, 스크롤 할 때마다 추가하는 식으로
                         => 아마 보이지 않는 게시글들은 자원을 효율적으로 사용하기 위해 활성화 되지 않다가 
                         => 다시 이전꺼를 보기 위해 활성화 시켜주는 식으로 */}
-                        <HomePost profile={imagePath+'profile1.jpg'} name={'영원한 우정님'} intro={'너와 나는 언제나 함께야'}
-                            contentImage={imagePath+'content_img1.jpg'} 
-                            content={'너의 신념을 남에게 이해시키지 말아라,  너가 믿는 것보다 더 중요한 것은 없다'}
-                            tags={['위로','감성']}
-                        />
-                        <HomePost profile={imagePath+'profile2.jpg'} name={'안건'} intro={'감성 글 작가'}
-                            contentImage={imagePath+'content_img2.jpg'}
-                            content={"인공지능, AI를 하나의 생명으로 바라본 다면 어떨까, \n 그들은 어떤 사람들에게는 그저 로봇에 불과할 수 있지만 \n 어떤 이들에게는 삶의 동반자다"}
-                            tags={['동기부여','새벽']}
-                        />
-                        <HomePost profile={imagePath+'profile_cat.jpg'} name={'The_Love_creatures'} intro={'동물보호가'}
-                            contentImage={imagePath+'content_img5.jpg'}
-                            content={"우리가 짐승이라고 생각하는 동물또한 생각을 한다. \n 그들에게도 마음이 있고 생각이 있다 \n 이 세상에 친구가 될 수 없는 존재는 없다"}
-                            tags={['자연','동물','사랑']}
-                        />
+                        <Post userName={"안건"} userTitle={"감성 글 작가"} profilePath={imagePath + "/profile1.jpg"}
+                        imagePath={imagePath + "/content_img1.jpg"}
+                        contentSaying={"너의 신념을 남에게 이해시키지 말아라,  너가 믿는 것보다 더 중요한 것은 없다"}/>
+
+                        <Post />
+                        <Post />
+                        
                     </MainContentsContainer>
                 </MidContainer>
                 {/* 오른쪽 Container */}
@@ -115,7 +109,7 @@ const HeadWhite = styled.div`
     width : 100%;
     height : 70px;
     background-color : white;
-    z-index : 1
+    z-index : 1;
 `
 
 const HeadContainer = styled.div`
@@ -123,7 +117,7 @@ const HeadContainer = styled.div`
     top : 0%;
     width : 100%;
     height : 70px;
-    z-index : 1
+    z-index : 1;
 `
 const ContainerFrame = styled.div`
     position : absolute;
@@ -146,7 +140,8 @@ const MidContainer = styled(ContainerFrame)`
     top : 100px;
     left : calc(50% - 350px);
     width : 630px;
-    height : 600px;
+    min-height : 600px;
+    height : auto;
 `
 const RightContainer = styled(ContainerFrame)`
     position : fixed;
@@ -164,13 +159,13 @@ const MainContentsContainer = styled.div`
     display : flex;
     width : 100%;
     height : auto;
-    min-height : 1000px;
-    
-    margin : 0 auto;
+    min-height : 100px;
     flex-direction : column;
-    flex-wrap: no-wrap;
     align-items : center;
 
+    padding-bottom : 50px;
+
+    border : 1px solid black;
 `
 
 

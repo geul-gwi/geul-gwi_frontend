@@ -4,8 +4,6 @@ import axios from 'axios';
 // component Import!
 import LikeBtn from 'component/common/button/LikeBtn';
 
-// css Import!
-import 'css/main/HomePost.css'
 
 // React icons
 import { AiOutlineLike , AiFillLike} from 'react-icons/ai'
